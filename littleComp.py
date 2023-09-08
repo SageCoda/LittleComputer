@@ -1,26 +1,18 @@
 from ASCII import ceaserlogo
+from ASCII import hangedmanlogo
+from ASCII import hangmanlogo
+from ASCII import hangmandictionary
+from ASCII import chest
+from ASCII import todologo
+from ASCII import rockimg
+from ASCII import paperimg
+from ASCII import scissorsimg
 import random
 import time 
 
 #  CIPHER FUNCTION
 def cipher():
-    logo = """           
-    ,adPPYba, ,adPPYYba,  ,adPPYba, ,adPPYba, ,adPPYYba, 8b,dPPYba,  
-    a8"     "" ""     `Y8 a8P_____88 I8[    "" ""     `Y8 88P'   "Y8  
-    8b         ,adPPPPP88 8PP"""""""  `"Y8ba,  ,adPPPPP88 88          
-    "8a,   ,aa 88,    ,88 "8b,   ,aa aa    ]8I 88,    ,88 88          
-    `"Ybbd8"' `"8bbdP"Y8  `"Ybbd8"' `"YbbdP"' `"8bbdP"Y8 88   
-                88             88                                 
-            ""             88                                 
-                            88                                 
-    ,adPPYba, 88 8b,dPPYba,  88,dPPYba,   ,adPPYba, 8b,dPPYba,  
-    a8"     "" 88 88P'    "8a 88P'    "8a a8P_____88 88P'   "Y8  
-    8b         88 88       d8 88       88 8PP""""""" 88          
-    "8a,   ,aa 88 88b,   ,a8" 88       88 "8b,   ,aa 88          
-    `"Ybbd8"' 88 88`YbbdP"'  88       88  `"Ybbd8"' 88          
-                88                                             
-                88           
-    """
+    logo = ceaserlogo
     alphabet = [' ','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     print(logo)
     direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
@@ -47,338 +39,25 @@ def cipher():
 
     ceaser(crypt=direction,plain_text=text,shift_amount=shift)
 
-    restart=input("Type yes if you want to go again else type no ")
-    while restart !='no':
+    restart=input("Type yes if you want to go again else type no ").lower()
+    if restart !='no':
         direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
         text = input("Type your message:\n").lower()
         shift = int(input("Type the shift number:\n"))
         ceaser(crypt=direction,plain_text=text,shift_amount=shift)
         restart=input("Type yes if you want to go again else type no ")
+    elif restart=="No".lower():
+        start_up()
 # CIPHER FUNCTION ENDS
 # HANGMAN FUNCTION 1.0
 def hangmanz():
-    hangman = (
-
-    """
-    _________
-        |/        
-        |              
-        |                
-        |                 
-        |               
-        |                   
-        |___                 
-        """,
-
-    """
-    _________
-        |/   |      
-        |              
-        |                
-        |                 
-        |               
-        |                   
-        |___                 
-        H""",
-
-    """
-    _________       
-        |/   |              
-        |   (_)
-        |                         
-        |                       
-        |                         
-        |                          
-        |___                       
-        HA""",
-
-    """
-    ________               
-        |/   |                   
-        |   (_)                  
-        |    |                     
-        |    |                    
-        |                           
-        |                            
-        |___                    
-        HAN""",
-
-
-    """
-    _________             
-        |/   |               
-        |   (_)                   
-        |   /|                     
-        |    |                    
-        |                        
-        |                          
-        |___                          
-        HANG""",
-
-
-    """
-    _________              
-        |/   |                     
-        |   (_)                     
-        |   /|\                    
-        |    |                       
-        |                             
-        |                            
-        |___                          
-        HANGM""",
-
-
-
-    """
-    ________                   
-        |/   |                         
-        |   (_)                      
-        |   /|\                             
-        |    |                          
-        |   /                            
-        |                                  
-        |___                              
-        HANGMA""",
-
-
-    """
-    ________
-        |/   |     
-        |   (_)    
-        |   /|\           
-        |    |        
-        |   / \        
-        |               
-        |___           
-        HANGMAN""")
+    hangman=hangedmanlogo
     hang=list(hangman)
 
 
-    logo = ''' 
-    _                                             
-    | |                                            
-    | |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  
-    | '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_ \ 
-    | | | | (_| | | | | (_| | | | | | | (_| | | | |
-    |_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
-                        __/ |                      
-                    |___/    '''
+    logo = hangmanlogo
     def get_word():
-        words = [
-        'abruptly', 
-        'absurd', 
-        'abyss', 
-        'affix', 
-        'askew', 
-        'avenue', 
-        'awkward', 
-        'axiom', 
-        'azure', 
-        'bagpipes', 
-        'bandwagon', 
-        'banjo', 
-        'bayou', 
-        'beekeeper', 
-        'bikini', 
-        'blitz', 
-        'blizzard', 
-        'boggle', 
-        'bookworm', 
-        'boxcar', 
-        'boxful', 
-        'buckaroo', 
-        'buffalo', 
-        'buffoon', 
-        'buxom', 
-        'buzzard', 
-        'buzzing', 
-        'buzzwords', 
-        'caliph', 
-        'cobweb', 
-        'cockiness', 
-        'croquet', 
-        'crypt', 
-        'curacao', 
-        'cycle', 
-        'daiquiri', 
-        'dirndl', 
-        'disavow', 
-        'dizzying', 
-        'duplex', 
-        'dwarves', 
-        'embezzle', 
-        'equip', 
-        'espionage', 
-        'euouae', 
-        'exodus', 
-        'faking', 
-        'fishhook', 
-        'fixable', 
-        'fjord', 
-        'flapjack', 
-        'flopping', 
-        'fluffiness', 
-        'flyby', 
-        'foxglove', 
-        'frazzled', 
-        'frizzled', 
-        'fuchsia', 
-        'funny', 
-        'gabby', 
-        'galaxy', 
-        'galvanize', 
-        'gazebo', 
-        'giaour', 
-        'gizmo', 
-        'glowworm', 
-        'glyph', 
-        'gnarly', 
-        'gnostic', 
-        'gossip', 
-        'grogginess', 
-        'haiku', 
-        'haphazard', 
-        'hyphen', 
-        'iatrogenic', 
-        'icebox', 
-        'injury', 
-        'ivory', 
-        'ivy', 
-        'jackpot', 
-        'jaundice', 
-        'jawbreaker', 
-        'jaywalk', 
-        'jazziest', 
-        'jazzy', 
-        'jelly', 
-        'jigsaw', 
-        'jinx', 
-        'jiujitsu', 
-        'jockey', 
-        'jogging', 
-        'joking', 
-        'jovial', 
-        'joyful', 
-        'juicy', 
-        'jukebox', 
-        'jumbo', 
-        'kayak', 
-        'kazoo', 
-        'keyhole', 
-        'khaki', 
-        'kilobyte', 
-        'kiosk', 
-        'kitsch', 
-        'kiwifruit', 
-        'klutz', 
-        'knapsack', 
-        'larynx', 
-        'lengths', 
-        'lucky', 
-        'luxury', 
-        'lymph', 
-        'marquis', 
-        'matrix', 
-        'megahertz', 
-        'microwave', 
-        'mnemonic', 
-        'mystify', 
-        'naphtha', 
-        'nightclub', 
-        'nowadays', 
-        'numbskull', 
-        'nymph', 
-        'onyx', 
-        'ovary', 
-        'oxidize', 
-        'oxygen', 
-        'pajama', 
-        'peekaboo', 
-        'phlegm', 
-        'pixel', 
-        'pizazz', 
-        'pneumonia', 
-        'polka', 
-        'pshaw', 
-        'psyche', 
-        'puppy', 
-        'puzzling', 
-        'quartz', 
-        'queue', 
-        'quips', 
-        'quixotic', 
-        'quiz', 
-        'quizzes', 
-        'quorum', 
-        'razzmatazz', 
-        'rhubarb', 
-        'rhythm', 
-        'rickshaw', 
-        'schnapps', 
-        'scratch', 
-        'shiv', 
-        'snazzy', 
-        'sphinx', 
-        'spritz', 
-        'squawk', 
-        'staff', 
-        'strength', 
-        'strengths', 
-        'stretch', 
-        'stronghold', 
-        'stymied', 
-        'subway', 
-        'swivel', 
-        'syndrome', 
-        'thriftless', 
-        'thumbscrew', 
-        'topaz', 
-        'transcript', 
-        'transgress', 
-        'transplant', 
-        'triphthong', 
-        'twelfth', 
-        'twelfths', 
-        'unknown', 
-        'unworthy', 
-        'unzip', 
-        'uptown', 
-        'vaporize', 
-        'vixen', 
-        'vodka', 
-        'voodoo', 
-        'vortex', 
-        'voyeurism', 
-        'walkway', 
-        'waltz', 
-        'wave', 
-        'wavy', 
-        'waxy', 
-        'wellspring', 
-        'wheezy', 
-        'whiskey', 
-        'whizzing', 
-        'whomever', 
-        'wimpy', 
-        'witchcraft', 
-        'wizard', 
-        'woozy', 
-        'wristwatch', 
-        'wyvern', 
-        'xylophone', 
-        'yachtsman', 
-        'yippee', 
-        'yoked', 
-        'youthful', 
-        'yummy', 
-        'zephyr', 
-        'zigzag', 
-        'zigzagging', 
-        'zilch', 
-        'zipper', 
-        'zodiac', 
-        'zombie', 
-    ]
+        words = hangmandictionary
         word=random.choice(words)
         return word
 
@@ -436,33 +115,18 @@ def hangmanz():
         
         
         if '_' not in blank:
-            print("You guessed it!")
+            print("You guessed it! WELL DONE!:)")
+            stop=input("Do you wanna play again? Yes or No? ").lower()
+            if stop=="Yes".lower():
+                hangmanz()
+            else:
+                start_up()
+
 #HANGMAN FUNCTION 
 
 # STORY FUNCTION
 def story():
-   print('''
-    *******************************************************************************
-              |                   |                  |                     |
-     _________|________________.=""_;=.______________|_____________________|_______
-    |                   |  ,-"_,=""     `"=.|                  |
-    |___________________|__"=._o`"-._        `"=.______________|___________________
-              |                `"=._o`"=._      _`"=._                     |
-     _________|_____________________:=._o "=._."_.-="'"=.__________________|_______
-    |                   |    __.--" , ; `"=._o." ,-"""-._ ".   |
-    |___________________|_._"  ,. .` ` `` ,  `"-._"-._   ". '__|___________________
-              |           |o`"=._` , "` `; .". ,  "-._"-._; ;              |
-     _________|___________| ;`-.o`"=._; ." ` '`."\` . "-._ /_______________|_______
-    |                   | |o;    `"-.o`"=._``  '` " ,__.--o;   |
-    |___________________|_| ;     (#) `-.o `"=.`_.--"_o.-; ;___|___________________
-    ____/______/______/___|o;._    "      `".o|o_.--"    ;o;____/______/______/____
-    /______/______/______/_"=._o--._        ; | ;        ; ;/______/______/______/_
-    ____/______/______/______/__"=._o--._   ;o|o;     _._;o;____/______/______/____
-    /______/______/______/______/____"=._o._; | ;_.--"o.--"_/______/______/______/_
-    ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
-    /______/______/______/______/______/______/______/______/______/______/_____ /
-    *******************************************************************************
-    ''')
+   print(chest)
    print("Welcome to Treasure Island.")
    print("Your mission is to find the treasure.") 
 
@@ -488,18 +152,16 @@ def story():
                print("You did it adventurer, you found the treasure!")
                print("*****Congratulations.You found the treasure.******")
                print("***FIN***")
+               stop=input("Do you wanna play again? Yes or No? ").lower()
+               if stop=="Yes".lower():
+                story()
+               else:
+                start_up()
 # STORY FUNCTOIN END
 
 # TODOO LIST FUNCTION
 def todo():
- header = """
-  _____         _           
- |_   _|__   __| | ___  ___ 
-   | |/ _ \ / _` |/ _ \/ __|
-   | | (_) | (_| | (_) \__ \\
-   |_|\___/ \__,_|\___/|___/
-                            
- """
+ header = todologo
  print(header)
 
  todos = []
@@ -536,6 +198,11 @@ def todo():
     print(f"You completed {len(completed)} todos today: ")
     for todo in completed:
         print(f"* {todo}")
+    stop=input("Are you done? Yes or No? ").lower()
+    if stop=="No".lower():
+       todo()
+    else:
+      start_up()
 # TODOO LIST FUNCTIon ENDS
 
 # SNAKE EYE FUNCTION
@@ -741,8 +408,8 @@ def bmi():
      print(f"Your BMI of {bmii} makes you Underweight")
     else:
      print(f"Your BMI of {bmii} makes you Severely Underweight")
-    stop=input("Do you wanna check again? Yes or No? " ) 
-    if stop=="No":
+    stop=input("Do you wanna check again? Yes or No? " ).lower()
+    if stop=="No".lower():
       start_up()
     else:
       bmi()
@@ -751,42 +418,20 @@ def bmi():
 
 # Rock paper scissor function STARTS
 def rps():
-    rock = """
-       _______
-   ---'   ____)
-         (_____)
-         (_____)
-         (____)
-   --.__(___)
-    """
-    paper = """
-        _______
-    ---'   ____)____
-              ______)
-              _______)
-             _______)
-    ---.__________)
-    """
-
-    scissors = """
-        _______
-    ---'   ____)____
-              ______)
-           __________)
-          (____)
-    ---.__(___)
-    """
+    rock = rockimg
+    paper = paperimg
+    scissors = scissorsimg
 # Assign the player's move to an ASCII
 
 
-    move= input("Enter your move(Rock, Paper or Scissors) ")
-    if move=="Rock":
+    move= input("Enter your move(Rock, Paper or Scissors) ").lower()
+    if move=="Rock".lower().lower():
      print("YOUR MOVE:"  )
      print(rock)
-    elif move=="Paper":
+    elif move=="Paper".lower().lower():
      print("YOUR MOVE:"  )
      print(paper)
-    elif move=="Scissors":
+    elif move=="Scissors".lower().lower():
      print("YOUR MOVE:"  )
      print(scissors)
 
@@ -804,40 +449,40 @@ def rps():
 
 
 # Comparing the User and Computer's move
-    if move=="Rock" and num==1:
+    if move=="Rock".lower() and num==1:
      print("Its a Tie")
      print("Let's go again.I won't lose!")
-    elif move=="Rock" and num==2:
+    elif move=="Rock".lower() and num==2:
       print("Paper beats rock.You lose!")
       print("HAHA! VICTORY!")
-    elif move=="Rock" and num==3:
+    elif move=="Rock".lower() and num==3:
       print("Rock beats Scissors .You win! :)")
       print("I'll take the next win though")
 
-    elif move=="Paper" and num==1:
+    elif move=="Paper".lower() and num==1:
      print("Paper beats Rock.You Win")
      print("Tsk,I'll take the next Win")
-    elif move=="Paper" and num==2:
+    elif move=="Paper".lower() and num==2:
      print("Its a Tie.")
      print("Let's go again.I won't lose!")
-    elif move=="Paper" and num==3:
+    elif move=="Paper".lower() and num==3:
      print("Scissors beats Paper.You lose!")
      print("HAHA! VICTORY!")
 
-    elif move=="Scissors" and num==3:
+    elif move=="Scissors".lower() and num==3:
      print("Its a Tie")
      print("Let's go again.I won't lose!")
-    elif move=="Scissors" and num==2:
+    elif move=="Scissors".lower() and num==2:
      print("Scissors beats Paper.You Win")
      print("Tsk,I'll take the next Win")
-    elif move=="Scissors" and num==1:
+    elif move=="Scissors".lower() and num==1:
      print("Rock beats Scissors.You lose!")
      print("HAHA! VICTORY!")
     else:
      print("Invalid Move!Try again")
     
-    stop=input("Do you wanna stop? Yes or No? ") 
-    if stop=="No":
+    stop=input("Do you wanna stop? Yes or No? ").lower() 
+    if stop=="No".lower():
        rps()
     else:
       start_up()
@@ -849,7 +494,7 @@ def start_up():
     # decisions stage
   print("*****MENU*****")
   print(menu)
-  decide=input("What would you like to do now? ")
+  decide=input("What would you like to do now? ").lower()
   if decide=="RPS".lower():
    print("Alright, let's play!")
    rps()
@@ -862,6 +507,10 @@ def start_up():
      todo()
   elif decide=="Story".lower():
    story()
+  elif decide=="Hangman".lower():
+   hangmanz()
+  elif decide=="Cipher".lower():
+   cipher()
 # START_UP FUNCTION ENDS
 
 
@@ -881,7 +530,7 @@ time.sleep(1)
 print("****MENU****")
 print(menu)
 print("Here's our menu today.")
-decide=input("What would you like to do? ")
+decide=input("What would you like to do? ").lower()
 if decide=="RPS".lower():
    print("Alright, let's play!")
    rps()
